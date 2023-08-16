@@ -2,13 +2,31 @@
 branches: {
   }
 fileChange:
-  /README.en.md:
-    newFile: !uuid 'ea67cd02983e619edcdf3a3075b9a0ed49db32c8'
+  /css:
+    newFile: !uuid 'e1dfd2def6e422b61a57a7c02feb25536cb2dc6c'
     oldFile: null
-  /README.md:
-    newFile: !uuid '3ab6be1668746ceacded6fb064fcc955b78888b3'
+  /css/index.css:
+    newFile: !uuid '833aea781b3a527e40f83a7d95c07b9930e090da'
     oldFile: null
-gitCommitId: !uuid 'db2303989764672e0496e66f0692af337b443dca'
+  /index.html:
+    newFile: !uuid '521e388c2cd8b6c86d57c1042e6fcf07d7136ffc'
+    oldFile: null
+  /js:
+    newFile: !uuid '7cf58e83c7da4be12117760cab3f7279e27063f4'
+    oldFile: null
+  /js/index.js:
+    newFile: !uuid '55ddda9ebcd30324430df343993b8aefdbbf809a'
+    oldFile: null
+  /js/lol.config.js:
+    newFile: !uuid 'd74c18bf7db09111cc42a0918fdd3b6444bffbff'
+    oldFile: null
+  /lib:
+    newFile: !uuid '8cabbc714b7bae05e80fdadba1adca30641eded6'
+    oldFile: null
+  /lib/jquery-3.6.0.min.js:
+    newFile: !uuid 'eb1d01d55d742e89fbf9c93b8dab43b2d050e6bb'
+    oldFile: null
+gitCommitId: !uuid '0cf566d0bd7a523e891264cda288f44ffa412e30'
 renames: {
   }
-revisionId: 1
+revisionId: 2
