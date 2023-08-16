@@ -1,53 +1,66 @@
-/* :root{
+a[type='fill'] {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
-} */
-body{
+body {
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
 }
-.el_toubu{
+
+li {
+    list-style: none;
+}
+
+.el_toubu {
     position: relative;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 360px;
     overflow: hidden;
 }
-/* .el_toubu>.top_bg1{
-     height: auto;
-    width: 100%; 
-} */
-.lol_menu{
+
+.el_toubu>.top_bg1 {
+    position: relative;
+}
+
+.lol_menu {
     position: absolute;
-    top:0;
+    top: 0;
     width: 100%;
     height: 86px;
     z-index: 999;
 }
-.lol_menu::after{
+
+.lol_menu::after {
     content: "";
     display: block;
     width: 100%;
     position: absolute;
-    z-index:-1;
-    top:0;
+    z-index: -1;
+    top: 0;
     height: 120px;
-    background-image: linear-gradient(to bottom,#000000ea,#0000007c,#00000000);
+    background-image: linear-gradient(to bottom, #000000ea, #0000007c, #00000000);
 }
-.txt_logo{
+
+.txt_logo {
     position: relative;
     top: -3px;
     left: -4px;
 }
-.juzhong{
+
+.juzhong {
     width: 1358px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
 }
-.menu_list{
+
+.menu_list {
     width: 746px;
     display: flex;
     justify-content: start;
@@ -56,23 +69,176 @@ body{
     padding: 0;
     margin-top: 14px;
     margin-left: -14px;
+    position: relative;
+    z-index: 1;
 }
-.menu_items{
+
+.menu_items {
     list-style: none;
     width: 150px;
 }
-.menu_items>span{
+
+.menu_items>span {
     text-align: center;
     display: block;
     width: 100%;
     letter-spacing: 1.1px;
 }
-.menu_xiaozi{
-    color:#aeaeae;
+
+.menu_xiaozi {
+    color: #aeaeae;
     font-size: 11px;
 }
-.menu_dazi{
+
+.menu_dazi {
     margin-bottom: 2px;
-    color:#fff;
+    color: #fff;
     font-size: 18px;
+}
+
+.menu_content {
+    min-height: 400px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.514);
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+.fade-in {
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-duration: .55s;
+}
+
+.menu-ul {
+    display: block;
+    width: 150px;
+    padding: 0;
+}
+
+.menu-child {
+    text-align: center;
+    font-size: 14px;
+    color: #e1e1e1;
+    margin-bottom: 12px;
+}
+
+.menu-child>span:hover {
+    color: #e9c06c;
+}
+
+.menu-wrapper {
+    width: 1058px;
+    margin: 98px auto 0 auto;
+    display: flex;
+    justify-content: start;
+    align-self: start;
+    flex-direction: row;
+}
+
+.menu-icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-position: var(--icon-x) var(--icon-y);
+    width: 14px;
+    height: 14px;
+    background-image: url(https://game.gtimg.cn/images/lol/v3/topfoot-spr.png);
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icon-sprite {
+    background-image: url(https://game.gtimg.cn/images/lol/v3/topfoot-spr.png);
+    background-repeat: no-repeat;
+}
+
+.btn-chakan {
+    width: 160px;
+    height: 40px;
+    position: relative;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 7;
+    left: calc(50% - 80px);
+    cursor: pointer;
+    background-position: -216px -40px;
+}
+
+#hero-swiper,
+.tab-btn {
+    width: 820px;
+    height: 340px;
+}
+
+.el-body {
+    max-width: 1358px;
+    width: 1358px;
+    margin: 45px auto;
+    overflow: hidden;
+}
+
+.tab-btn {
+    width: 820px;
+    height: 40px;
+    display: flex;
+    background-color: #e3e2e2;
+}
+
+.tab-btns {
+    width: 20%;
+    color: #424242;
+    display: inline-block;
+    height: 40px;
+    flex-direction: row;
+    text-align: center;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(0, 0, 0, 0);
+    font-size: 14px;
+}
+
+.btn-select {
+    color: #ab8e66;
+    background-color: white;
+    border-color: #cea861;
+}
+
+.swiper {
+    width: 820px;
+    height: 380px;
+    float: left;
+}
+
+.m-news {
+    width: 496px;
+    float: right;
+    height: 380px;
+    background-color: white;
+}
+
+.part-top-tab {
+    height: 35px;
+    width: 596px;
+}
+
+.part-tab-title {
+    height: 100%;
+    display: inline-block;
+    width: 40px;
+    margin-right: 74px;
+}
+
+.btn2-select {
+    color: #1da6ba;
 }
