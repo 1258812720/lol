@@ -3,30 +3,33 @@ branches: {
   }
 fileChange:
   /css:
-    newFile: !uuid 'e1dfd2def6e422b61a57a7c02feb25536cb2dc6c'
-    oldFile: null
+    newFile: !uuid 'df4866fa18bfddb7ab4b7a4f4a5ea7fea4d4c0dc'
+    oldFile: !uuid 'e1dfd2def6e422b61a57a7c02feb25536cb2dc6c'
   /css/index.css:
-    newFile: !uuid '833aea781b3a527e40f83a7d95c07b9930e090da'
+    newFile: !uuid '3e64b38237b17277508bd4ddc5a5f08c5523221c'
+    oldFile: !uuid '833aea781b3a527e40f83a7d95c07b9930e090da'
+  /css/swiper.css:
+    newFile: !uuid '551fb6a25fb33633e64dbf0c91b2efbc2a3f5bad'
     oldFile: null
   /index.html:
-    newFile: !uuid '521e388c2cd8b6c86d57c1042e6fcf07d7136ffc'
-    oldFile: null
+    newFile: !uuid 'd6a1924f330313f4d72f3ae6bb3a6a8963b94a64'
+    oldFile: !uuid '521e388c2cd8b6c86d57c1042e6fcf07d7136ffc'
   /js:
-    newFile: !uuid '7cf58e83c7da4be12117760cab3f7279e27063f4'
-    oldFile: null
+    newFile: !uuid '004ee3720d33f483481ba5af8f71d9d2ae093390'
+    oldFile: !uuid '7cf58e83c7da4be12117760cab3f7279e27063f4'
   /js/index.js:
-    newFile: !uuid '55ddda9ebcd30324430df343993b8aefdbbf809a'
-    oldFile: null
+    newFile: !uuid 'aa8b35a2a9c314a0a7027642a3a5a40fe32fa15f'
+    oldFile: !uuid '55ddda9ebcd30324430df343993b8aefdbbf809a'
   /js/lol.config.js:
-    newFile: !uuid 'd74c18bf7db09111cc42a0918fdd3b6444bffbff'
-    oldFile: null
+    newFile: !uuid 'f782918eb126431cb8fa4a29abb4f3794ce5d099'
+    oldFile: !uuid 'd74c18bf7db09111cc42a0918fdd3b6444bffbff'
   /lib:
-    newFile: !uuid '8cabbc714b7bae05e80fdadba1adca30641eded6'
+    newFile: !uuid '6340812c7d8403ebae4a5baf251af917c6671b26'
+    oldFile: !uuid '8cabbc714b7bae05e80fdadba1adca30641eded6'
+  /lib/swiper.js:
+    newFile: !uuid 'aa8246124625263128435477c739b628c6ac38d1'
     oldFile: null
-  /lib/jquery-3.6.0.min.js:
-    newFile: !uuid 'eb1d01d55d742e89fbf9c93b8dab43b2d050e6bb'
-    oldFile: null
-gitCommitId: !uuid '0cf566d0bd7a523e891264cda288f44ffa412e30'
+gitCommitId: !uuid '9476bd0f06d00caa6d025d6cdb145a62bf1b9072'
 renames: {
   }
-revisionId: 2
+revisionId: 3
