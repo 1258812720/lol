@@ -7,6 +7,13 @@ const page = {
     "txt_logo": "https://game.gtimg.cn/images/lol/v3/logo-public.png"
 }
 const sprite = "https://game.gtimg.cn/images/lol/v3/topfoot-spr.png";// 精灵图
+// 新闻信息接口
+const new_uri = 
+    ["https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
+"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=27&source=web_pc&r1=_jsonp",
+"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=25&source=web_pc&r1=_jsonp",
+"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
+"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=23&source=web_pc&r1=_jsonp"];
 const list = {
     menu: [
         {
@@ -16,6 +23,15 @@ const list = {
         {
             txt: "商城/合作",
             txt_en: "STORe"
+        },{
+            txt:"社区互动",
+            txt_en:"COMMUNITY"
+        },{
+            txt:"赛事官网",
+            txt_en:"ESPORTS"
+        },{
+            txt:"自助系统",
+            txt_en:"SYSTEM"
         }
     ],
     menu2: [
