@@ -240,6 +240,10 @@ li {
     border-bottom: 1px solid #e0e2e2;
     box-sizing: border-box;
 }
+.bottom-cut-line{
+    border-bottom: 1px solid #e0e2e2;
+    box-sizing: border-box;
+}
 
 .part-tab-title {
     height: 100%;
@@ -419,7 +423,6 @@ li {
 }
 
 .b-fade-in {
-    background-color: #0da0b4 !important;
     animation-name: body-fade-in;
     animation-duration: 400ms;
     animation-delay: .4s;
@@ -473,7 +476,8 @@ li {
     background-image: var(--leader-img);
     margin-bottom: 8px;
 }
-.el-button{
+
+.el-button {
     color: #92a8ab;
     width: 100%;
     display: block;
@@ -484,9 +488,84 @@ li {
     flex-direction: column;
     font-size: 12px;
 }
+
 @keyframes body-fade-in {
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+
+.card-title {
+    font-size: 28px;
+    position: relative;
+    display: inline-block;
+    padding-left: 14px;
+    margin: 4px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+}
+
+.card-title::before {
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 4px;
+    background-color: #1da6ba;
+}
+.tab-list-activity{
+    margin-left: 20px;
+    display: inline-flex;
+    width: 668px;
+}
+.inline-layout{
+    width: 100%;
+    display: inline-flex;
+}
+.tab-list-activity>.tab-button{
+    margin-right: 27px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 38px;
+    width: 68px;
+    position: relative;
+}
+.tab-list-activity>.selected{
+    font-weight: 700;
+    color: #1da6ba;
+}
+.tab-list-activity>.tab-button::after{
+    content: '';
+    display: block;
+    width: 100%;
+    bottom: 0;
+    height: 4px;
+    background-position: center center; 
+    background-image: var(--tab-line);
+    background-repeat: no-repeat;
+    transform: scaleX(0);
+    transition: transform .25s;
+}
+.tab-list-activity>.selected::after{
+    transform: scaleX(1);
+}
+.tab-list-activity-wrapper{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.tab-list-activity-wrapper>.tab-list-activity-content{
+    width: 1358px;
+    box-sizing: border-box;
+    border: 4px solid red;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
 }

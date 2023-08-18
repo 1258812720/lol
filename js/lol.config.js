@@ -60,3 +60,15 @@ const list = {
         ]
     }
 }
+const tab_config = {
+    activity:[{
+        txt:"正在进行",
+        value:0
+    },{
+        txt:"商城特惠",
+        value:1
+    },{
+        txt:"长期活动",
+        value:2
+    }]
+}

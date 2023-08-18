@@ -5,7 +5,7 @@
  */
 const main = $(".news_wrapper");
 // 页面初始化
-
+// 响应式数据
 function ref(obj, c) {
     if (obj) {
         return new Proxy(obj, {
@@ -22,6 +22,34 @@ function ref(obj, c) {
     }
 }
 
+// 封装的tab组件库
+$.fn.extend({
+    /**
+     * 
+     * @param {*} config  {init, col:Array-> [{txt:string,value:number}],select:function }
+     */
+    createTabBtn: function (config) {
+        let _t = $(this);
+        if (config.init && typeof config.init === 'function') {
+            config.init();
+        }
+        if (_t && config.col) {
+            config.col.forEach((val, i) => {
+                let btn = $(`<div class='tab-button ${i === 0 ? 'selected' : ''}' select-id="${val.value}">
+                    ${val.txt}
+                 </div>`);
+                if (config.select && typeof config.select === 'function') {
+                    btn.on("click", () => {
+                        config.select(val.value);
+                        btn.addClass("selected")
+                            .siblings().removeClass("selected")
+                    })
+                }
+                _t.append(btn);
+            });
+        }
+    }
+});
 const news_data = ref([], (data, idx) => {
     let p = main.eq(idx);
     let lists = data[idx].data.result;
@@ -38,33 +66,29 @@ const news_data = ref([], (data, idx) => {
 function _jsonp(data) {
     try {
         news_data.push(data);
-    } catch (err) {
-
-    }
+    } catch (err) { }
 }
 $(document).ready(function () {
-    window.__proto__.message = function(msg){
+    window.__proto__.message = function (msg) {
         let div = $(`
         <div class="el-message"></div>
         `);
         let inner_div = $(`<div class="__inner_message">
-            ${msg?msg:'暂无消息'}
+            ${msg ? msg : '暂无消息'}
         </div>`);
         let emoji = $("<img src='/img/emoji.jpg' />");
-        div.append(emoji);
-        inner_div.click(e=>{
+        inner_div.append(emoji);
+        inner_div.click(e => {
             e.stopPropagation();
         });
         div.append(inner_div);
-
-        div.on("click",()=>{
+        div.on("click", () => {
             div.remove();
         });
         div.css({
-            opacity:1
+            opacity: 1
         });
         $("body").append(div);
-        
     }
 
     /**
@@ -73,7 +97,7 @@ $(document).ready(function () {
      * @param {*} nodes 
      * @returns 
      */
-    $("#click").click(()=>{
+    $("#click").click(() => {
         message();
     });
 
@@ -92,7 +116,6 @@ $(document).ready(function () {
             })
         }
     }
-
 
     set_attr(page, $("img"));
     const menu = $(".menu_list");
@@ -144,15 +167,44 @@ $(document).ready(function () {
             this.swiper()
                 .tab()
                 .scroll((data) => {
-                    console.log(data)
+                    // console.log(data);
                 }).tool();
         },
         tool() {
             $("#back-top").click(() => {
                 $("html,body").animate({
-                    scrollTop:0
-                },430)
+                    scrollTop: 0
+                }, 430)
             });
+            // 热门活动
+
+            let contents = $(".tab-list-activity-content");
+            let width = contents.eq(0).width();
+            // 创建tab按钮组
+            $(".tab-list-activity").createTabBtn({
+                col: tab_config.activity,
+                init() {
+                    contents.each((i, node) => {
+                        $(node).css({
+                            transition: "all .42s",
+                            transform: `translate3d(${i * width}px,0px,0px)`
+                        });
+                    });
+                },
+                select(e) {
+                    contents.each((i, node) => {
+                        let dis = 0;
+                        console.log("node_idx",i,"select",e)
+                        let idx = e === i ? 0 : (e < i) ? 1 : -1;
+                        dis = idx*i*width;
+                        // console.log(node,dis,i)
+                        $(node).css({
+                            transition: "all .42s",
+                            transform: `translate3d(${dis}px,0px,0px)`
+                        });
+                    });
+                }
+            })
             return this;
         },
         scroll(f) {
@@ -166,7 +218,7 @@ $(document).ready(function () {
                 $(window).on("scroll", render);
                 function render() {
                     let h = document.documentElement.scrollTop;
-                    if(f && typeof f === 'function'){
+                    if (f && typeof f === 'function') {
                         f(h);
                     }
                     if ($(".fade-in").length < max) {
