@@ -31,7 +31,7 @@ $.fn.extend({
     createTabBtn: function (config) {
         let _t = $(this);
         if (config.init && typeof config.init === 'function') {
-            config.init();
+            config.init(_t);
         }
         if (_t && config.col) {
             config.col.forEach((val, i) => {
@@ -76,7 +76,7 @@ $(document).ready(function () {
         let inner_div = $(`<div class="__inner_message">
             ${msg ? msg : '暂无消息'}
         </div>`);
-        let emoji = $("<img src='/img/emoji.jpg' />");
+        let emoji = $("<img src='img/emoji.jpg' />");
         inner_div.append(emoji);
         inner_div.click(e => {
             e.stopPropagation();
@@ -170,6 +170,7 @@ $(document).ready(function () {
                     // console.log(data);
                 }).tool();
         },
+        his_index: 0,
         tool() {
             $("#back-top").click(() => {
                 $("html,body").animate({
@@ -177,32 +178,25 @@ $(document).ready(function () {
                 }, 430)
             });
             // 热门活动
-
             let contents = $(".tab-list-activity-content");
-            let width = contents.eq(0).width();
+            let height = 325;
+            console.log(height)
             // 创建tab按钮组
+            let t = this.his_index;
             $(".tab-list-activity").createTabBtn({
                 col: tab_config.activity,
-                init() {
-                    contents.each((i, node) => {
-                        $(node).css({
-                            transition: "all .42s",
-                            transform: `translate3d(${i * width}px,0px,0px)`
-                        });
-                    });
+                slide: undefined,
+                init(el) {
+                    let slider = $("<div class='slider' style='height:" + height * contents.length + "px;width:100%'></div>");
+                    contents.wrapAll(slider);
+                    this.slide = el.children(".slider");
                 },
                 select(e) {
-                    contents.each((i, node) => {
-                        let dis = 0;
-                        console.log("node_idx",i,"select",e)
-                        let idx = e === i ? 0 : (e < i) ? 1 : -1;
-                        dis = idx*i*width;
-                        // console.log(node,dis,i)
-                        $(node).css({
-                            transition: "all .42s",
-                            transform: `translate3d(${dis}px,0px,0px)`
-                        });
-                    });
+                    let dis = e*height;
+                    $(".slider:first-child").css({
+                        transition:'all .48s ease',
+                        transform: `translate3d(0px,-${dis}px,0px)`
+                    })
                 }
             })
             return this;
