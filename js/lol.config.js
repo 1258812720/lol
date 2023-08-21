@@ -8,13 +8,17 @@ const page = {
 }
 const sprite = "https://game.gtimg.cn/images/lol/v3/topfoot-spr.png";// 精灵图
 // 新闻信息接口
-const new_uri = 
+const new_uri =
     ["https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
-"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=27&source=web_pc&r1=_jsonp",
-"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=25&source=web_pc&r1=_jsonp",
-"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
-"https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=23&source=web_pc&r1=_jsonp"];
+        "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=27&source=web_pc&r1=_jsonp",
+        "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=25&source=web_pc&r1=_jsonp",
+        "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
+        "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=23&source=web_pc&r1=_jsonp"];
 const url_hero_list = "https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js?v=30";
+const hero_type = [{
+    txt: "所有英雄",
+    value: 0,
+}, { txt: "战士", value: 1 }, { txt: "法师", value: 2 }, { txt: "刺客", value: 3 }, { txt: "坦克", value: 4 }, { txt: "射手", value: 5 }, { txt: "辅助", value: 6 }];
 const list = {
     menu: [
         {
@@ -24,15 +28,15 @@ const list = {
         {
             txt: "商城/合作",
             txt_en: "STORe"
-        },{
-            txt:"社区互动",
-            txt_en:"COMMUNITY"
-        },{
-            txt:"赛事官网",
-            txt_en:"ESPORTS"
-        },{
-            txt:"自助系统",
-            txt_en:"SYSTEM"
+        }, {
+            txt: "社区互动",
+            txt_en: "COMMUNITY"
+        }, {
+            txt: "赛事官网",
+            txt_en: "ESPORTS"
+        }, {
+            txt: "自助系统",
+            txt_en: "SYSTEM"
         }
     ],
     menu2: [
@@ -62,14 +66,14 @@ const list = {
     }
 }
 const tab_config = {
-    activity:[{
-        txt:"正在进行",
-        value:0
-    },{
-        txt:"商城特惠",
-        value:1
-    },{
-        txt:"长期活动",
-        value:2
+    activity: [{
+        txt: "正在进行",
+        value: 0
+    }, {
+        txt: "商城特惠",
+        value: 1
+    }, {
+        txt: "长期活动",
+        value: 2
     }]
 }

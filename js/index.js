@@ -1,6 +1,5 @@
 /** 主界面脚本
  * @author 刘海斌
- * @member 岑锦波
  * @editor all
  */
 const main = $(".news_wrapper");
@@ -39,10 +38,10 @@ $.fn.extend({
                     ${val.txt}
                  </div>`);
                 if (config.select && typeof config.select === 'function') {
-                    btn.on("click", () => {
+                    btn.on("click", function () {
                         config.select(val.value);
                         btn.addClass("selected")
-                            .siblings().removeClass("selected")
+                            .siblings().removeClass("selected");
                     })
                 }
                 _t.append(btn);
@@ -77,18 +76,26 @@ $(document).ready(function () {
             ${msg ? msg : '暂无消息'}
         </div>`);
         let emoji = $("<img src='img/emoji.jpg' />");
-        inner_div.append(emoji);
         inner_div.click(e => {
             e.stopPropagation();
         });
         div.append(inner_div);
+        inner_div.append(emoji);
         div.on("click", () => {
-            div.remove();
+            inner_div.removeClass("show")
+                .addClass("hide");
+            div.fadeOut(300);
+            setTimeout(() => {
+                div.remove();
+            }, 340)
         });
         div.css({
             opacity: 1
         });
         $("body").append(div);
+        if (inner_div.is(":visible")) {
+            inner_div.addClass("show");
+        }
     }
 
     /**
@@ -180,9 +187,7 @@ $(document).ready(function () {
             // 热门活动
             let contents = $(".tab-list-activity-content");
             let height = 325;
-            console.log(height)
             // 创建tab按钮组
-            let t = this.his_index;
             $(".tab-list-activity").createTabBtn({
                 col: tab_config.activity,
                 slide: undefined,
@@ -192,14 +197,51 @@ $(document).ready(function () {
                     this.slide = el.children(".slider");
                 },
                 select(e) {
-                    let dis = e*height;
+                    let dis = e * height;
                     $(".slider:first-child").css({
-                        transition:'all .48s ease',
+                        transition: 'all .48s ease',
                         transform: `translate3d(0px,-${dis}px,0px)`
                     })
                 }
-            })
+            });
+            this.heros();
             return this;
+        },
+        select_hero: undefined,
+        heros() {
+            var _t = this;
+            function render_list(data) {
+                console.log('render-data')
+                // 渲染tabs
+                $(".tab-list-hero").createTabBtn({
+                    col: hero_type,
+                    slide: undefined,
+                    init(el) {
+
+                    },
+                    select(e) {
+                        let index = e;
+                        if (index < data.length) {
+                            let sel_data = data[index];
+                            console.log(sel_data)
+                        }
+
+                    }
+                });
+            }
+            $.ajax({
+                methods: "GET",
+                url: url_hero_list,
+                success(res) {
+                    let toJson = JSON.parse(res);
+                    if (Object.keys(toJson) !== 0) {
+                        render_list(toJson.hero);
+                    }
+                },
+                error(err) {
+                    console.log(err)
+                }
+            })
         },
         scroll(f) {
             // 判断页面的高度是否溢出
