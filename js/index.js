@@ -185,16 +185,34 @@ $(document).ready(function () {
                 }, 430)
             });
             // 热门活动
-            let contents = $(".tab-list-activity-content");
-            let height = 325;
+            let contents = $(".tab-list-activity-wrapper");
+            let height = contents.height();
+            let width = contents.width();
             // 创建tab按钮组
             $(".tab-list-activity").createTabBtn({
                 col: tab_config.activity,
                 slide: undefined,
-                init(el) {
+                init() {
                     let slider = $("<div class='slider' style='height:" + height * contents.length + "px;width:100%'></div>");
-                    contents.wrapAll(slider);
-                    this.slide = el.children(".slider");
+                    contents.append(slider);
+                    tab_config.data.forEach((it, i) => {
+                        let wrap = $(`<div class='tab-list-activity-content'>
+                        </div>`);
+                        if (it && it instanceof Array) {
+                            it.forEach((b, a) => {
+                                let card = $(`<div class='tab-list-card'> 
+                                                <div class='tab-list-card-image'>
+                                                    <img src="${b.src}"/>
+                                                </div>
+                                                <span> ${b.txt} </span>
+                                            </div>`);
+                                slider.append(card);
+                            });
+                        } else {
+                            throw new Error('输入格式不正确')
+                        }
+                        slider.append(wrap);
+                    });
                 },
                 select(e) {
                     let dis = e * height;
@@ -211,7 +229,6 @@ $(document).ready(function () {
         heros() {
             var _t = this;
             function render_list(data) {
-                console.log('render-data')
                 // 渲染tabs
                 $(".tab-list-hero").createTabBtn({
                     col: hero_type,
@@ -225,7 +242,6 @@ $(document).ready(function () {
                             let sel_data = data[index];
                             console.log(sel_data)
                         }
-
                     }
                 });
             }

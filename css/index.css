@@ -539,7 +539,7 @@ li {
 .tab-list-activity {
     margin-left: 20px;
     display: inline-flex;
-    width: 668px;
+    width: 648px;
 }
 
 .inline-layout {
@@ -633,4 +633,11 @@ li {
     background-repeat: no-repeat;
     background-position: 65.7% 57.2%;
     margin-right: 6px;
+}
+a[type='theme']{
+    color: #7ea1a6;
+    font-size: 12px;
+}
+.card-title-more{
+    color:red;
 }

@@ -75,5 +75,22 @@ const tab_config = {
     }, {
         txt: "长期活动",
         value: 2
-    }]
+    }],
+    data: [
+        [{
+            src: 'https://ossweb-img.qq.com/images/clientpop/act/lol_1692341340_uploadnewsImg.png',
+            txt: '玉剑传说罗技联名礼盒限时开售',
+            last_day: 8,
+            is_new: false,
+            desc: '购买即赠英雄联盟手游 玉剑传说系列皮肤\n2023-08-18 - 2023-10-07'
+        }, 
+        {
+            src: 'https://ossweb-img.qq.com/images/clientpop/act/lol_1691027915_uploadnewsImg.jpg',
+            txt: 'Hot Toys联名珍藏手办发售中！',
+            last_day: 7,
+            is_new: false,
+            desc: '卡莎艾希相聚一堂，合力为荣耀而战！\n2023-08-03 - 2023-08-31'
+        }]
+
+    ]
 }
