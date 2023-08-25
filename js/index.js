@@ -187,13 +187,12 @@ $(document).ready(function () {
             // 热门活动
             let contents = $(".tab-list-activity-wrapper");
             let height = contents.height();
-            let width = contents.width();
             // 创建tab按钮组
             $(".tab-list-activity").createTabBtn({
                 col: tab_config.activity,
                 slide: undefined,
                 init() {
-                    let slider = $("<div class='slider' style='height:" + height * contents.length + "px;width:100%'></div>");
+                    let slider = $("<div class='slider' style='height:" + height * tab_config.data.length + "px;width:100%'></div>");
                     contents.append(slider);
                     tab_config.data.forEach((it, i) => {
                         let wrap = $(`<div class='tab-list-activity-content'>
@@ -203,10 +202,17 @@ $(document).ready(function () {
                                 let card = $(`<div class='tab-list-card'> 
                                                 <div class='tab-list-card-image'>
                                                     <img src="${b.src}"/>
+                                                    <div class="tab-list-card-text">
+                                                        <span class="title"> ${b.txt} </span>
+                                                        <span class="desc"> ${b.desc} </span>
+                                                    </div>
                                                 </div>
-                                                <span> ${b.txt} </span>
+                                                <a type='theme' class="title">${b.txt}
+                                                </a>
+                                                <label class="duration">${b.last_day > 0 ? b.last_day + '天后结束' : '长期活动'}  </label>
+                                                ${b.is_new ? '<i class="is-new"></i>' : ''}
                                             </div>`);
-                                slider.append(card);
+                                wrap.append(card);
                             });
                         } else {
                             throw new Error('输入格式不正确')

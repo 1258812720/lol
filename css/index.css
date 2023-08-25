@@ -1,9 +1,17 @@
+@import url('animate.css');
+
 :root {
     --tab-line: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAAHCAYAAACbWWcuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyNDFjNjRhMS1kNzE0LWQ3NDktYjhjNS01MDZjNTM5ZWNjNTMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjVDNjlGQzM2NDZEMTFFQjgwMzlCQTk0Njk3OEI0RDEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjVDNjlGQzI2NDZEMTFFQjgwMzlCQTk0Njk3OEI0RDEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI0MWM2NGExLWQ3MTQtZDc0OS1iOGM1LTUwNmM1MzllY2M1MyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyNDFjNjRhMS1kNzE0LWQ3NDktYjhjNS01MDZjNTM5ZWNjNTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz63ScDxAAAAlUlEQVR42uzcsQnDMBAFUMl7ONtkCC8Y7+Bsk0UUghuX6qJvvdcIhBoJwfE5uNpaKwAws8f+Tr/Cr5jX5At8tqePCMD0Fk8AAPHh/LoCAAI6APCncF6EdADIV9fXoZgDQFDt7gjjPWcAgMHooANAdlDv3QcARi/uhsQBMLvwIXHtDuHckDgA0EEHgHQ1PZwDAKevAAMANfYWgoRjiMUAAAAASUVORK5CYII=");
     --leader-img: url("https://game.gtimg.cn/images/lol/v3/comm-spr.png");
     --icon-spr: url("https://game.gtimg.cn/images/lol/v3/index-spr.png")
 }
-
+div[type='button']{
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 a[type='fill'] {
     display: block;
     width: 100%;
@@ -156,12 +164,7 @@ li {
     background-image: url(https://game.gtimg.cn/images/lol/v3/topfoot-spr.png);
 }
 
-@keyframes fade-in {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 .icon-sprite {
     background-image: url(https://game.gtimg.cn/images/lol/v3/topfoot-spr.png);
@@ -486,7 +489,7 @@ li {
     background-repeat: no-repeat;
 }
 
-#back-top {
+.to-top{
     display: block;
     width: 22px;
     height: 22px;
@@ -507,12 +510,7 @@ li {
     font-size: 12px;
 }
 
-@keyframes body-fade-in {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+
 
 .card-title {
     font-size: 26px;
@@ -545,6 +543,7 @@ li {
 .inline-layout {
     width: 100%;
     display: inline-flex;
+    height: 48px;
 }
 
 .tab-list-activity>.tab-button {
@@ -581,22 +580,25 @@ li {
 
 .tab-list-activity-wrapper {
     width: 100%;
-    height: 100%;
+    height: 298px;
     position: relative;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .tab-list-activity-wrapper>.slider>.tab-list-activity-content {
-    width: 820px;
+    width: 840px;
     box-sizing: border-box;
-    border: 4px solid red;
-    height: 325px;
+    height: 298px;
     position: relative;
 }
 
 .left-huodong {
-    height: 325px;
-    width: 820px;
+    min-height: 325px;
+    width: 840px;
+    overflow: hidden;
+    float: left;
+    position: relative;
 }
 
 .tab-list-hero {
@@ -621,7 +623,7 @@ li {
 
 .tab-list-hero>.tab-button:hover::before,
 .tab-list-hero>.selected::before {
-    background-position: 69.5% 57.2%!important;
+    background-position: 69.5% 57.2% !important;
 }
 
 .tab-list-hero>.tab-button::before {
@@ -634,10 +636,117 @@ li {
     background-position: 65.7% 57.2%;
     margin-right: 6px;
 }
-a[type='theme']{
+
+a[type='theme'] {
     color: #7ea1a6;
     font-size: 12px;
 }
-.card-title-more{
-    color:red;
+
+.card-title-more {
+    color: red;
+}
+
+.tab-list-card {
+    width: 193px;
+    height: 278px;
+    background-color: white;
+    float: left;
+    margin-right: 16px;
+    cursor: pointer;
+    transform: translateY(10px);
+    transition-property: transform;
+    transition-duration: .23s;
+}
+
+.tab-list-card:hover {
+    transform: translateY(0px);
+}
+
+.tab-list-card:hover .tab-list-card-text {
+    transition: opacity .23s;
+    opacity: 1;
+}
+
+.tab-list-card-image {
+    width: 193px;
+    height: 207px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tab-list-card-image>img {
+    width: 100%;
+
+}
+
+.tab-list-card-image>.tab-list-card-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.514);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 14px;
+    padding-right: 14px;
+    align-items: center;
+    flex-direction: column;
+    background-image: var(--leader-img);
+    background-position: 2px 3px;
+}
+
+.tab-list-card-text>.title {
+    color: #cdbe91;
+    line-height: 26px;
+
+}
+
+.tab-list-card-text>.desc {
+    color: #9d9c9c;
+    font-size: 14px;
+}
+
+.tab-list-card>.title {
+    margin-top: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: block;
+    font-size: 13.8px;
+    display: inline-block;
+    min-height: 38px;
+}
+
+.tab-list-card>.duration {
+    font-size: 13.1px;
+    color: #1da6baed;
+    margin-left: 6px;
+}
+
+.is-new {
+    display: inline-block;
+    vertical-align: bottom;
+    float: right;
+    margin-right: 6px;
+    background-image: var(--leader-img);
+    background-position: -301px -46px;
+    width: 29px;
+    background-repeat: no-repeat;
+    height: 14px;
+    margin-top: 4px;
+}
+
+.game-download {
+    width: calc(1358px - 840px);
+    height:366px;
+    float: right;
+}
+.game-download>.btn-down{
+    background-image: url('../img/btn-download.gif');
+    background-repeat: no-repeat;
+    width: 366px;
+    height: 168px;
 }
