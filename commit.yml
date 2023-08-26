@@ -3,36 +3,36 @@ branches: {
   }
 fileChange:
   /css:
-    newFile: !uuid '6cf0cb01683a0e432a1d1813795cf0b178aeb651'
-    oldFile: !uuid 'ee34e75465e04fadd0c5735ef28ed1c161771a57'
+    newFile: !uuid 'b935390b5fc6db678725f203a59965e432985def'
+    oldFile: !uuid '6cf0cb01683a0e432a1d1813795cf0b178aeb651'
   /css/animate.css:
-    newFile: !uuid '351d9db20e070844cae03bb810c92174808f1849'
-    oldFile: null
+    newFile: !uuid 'd986c41686156910d30d18fbaa0986b9c3ae22d6'
+    oldFile: !uuid '351d9db20e070844cae03bb810c92174808f1849'
   /css/index.css:
-    newFile: !uuid '04deb3142d4a211ded3713a3372d2485d88d105d'
-    oldFile: !uuid '7e7ab8f6d27e159100344f38d7f2f85c2d3ccb46'
-  /img:
-    newFile: !uuid '0a9b7b341992fc0dbd263754f41a1cffc66667af'
-    oldFile: !uuid '20fe78d24bbca2c31ccc3a3a0f3636fc42912d45'
-  /img/btn-download.gif:
-    newFile: !uuid '9488fbdb63b8600f485880a8e0d5333377fcd7bd'
-    oldFile: null
-  /img/kunkun.png:
-    newFile: !uuid '65a6bc25a8dc2cf287fde5b31857cd78607d0ff7'
+    newFile: !uuid '4925cf69daeb0f22f1917ea9578d9ea7c8083893'
+    oldFile: !uuid '04deb3142d4a211ded3713a3372d2485d88d105d'
+  /css/swiper.min.css:
+    newFile: !uuid '2e0ce92b2a2a7c3a16e691354fa69e429c7dfbb0'
     oldFile: null
   /index.html:
-    newFile: !uuid '944725bd84681fe84ebe28b981b89d150022909d'
-    oldFile: !uuid 'c8237bb40f81b08eb5f0ee39a2f7b197fec430e8'
+    newFile: !uuid '8863041d69917a910a4d99429da65ef32fca85bd'
+    oldFile: !uuid '944725bd84681fe84ebe28b981b89d150022909d'
   /js:
-    newFile: !uuid '24c9018420fa0c3c1556c16468bd050237ba6026'
-    oldFile: !uuid 'c953836cf20861ff58743ddbf34ab5bf88e65117'
+    newFile: !uuid '1ceec33b37ecd147bb37e491dc9513d98f074b9d'
+    oldFile: !uuid '24c9018420fa0c3c1556c16468bd050237ba6026'
   /js/index.js:
-    newFile: !uuid '6765bf7f2040aeee2ab026a54d7c56d18f0b5bea'
-    oldFile: !uuid '6f394672178f71cb4dbe1d44e9b26c668946f1a9'
+    newFile: !uuid '923ee24aa4835df399a1a733d8a39347b81455ae'
+    oldFile: !uuid '6765bf7f2040aeee2ab026a54d7c56d18f0b5bea'
   /js/lol.config.js:
-    newFile: !uuid '715dc0d9ad9e9d9e9ba8ff1fe90f9fb5da1d5dbe'
-    oldFile: !uuid '5d7722d1c0c08ae024e58815929467eecea25894'
-gitCommitId: !uuid '1c22e4d584e16f334f802c3cc4a8366456214980'
+    newFile: !uuid '82d7756f0319c4d2ec07843045871ac4d230ec5b'
+    oldFile: !uuid '715dc0d9ad9e9d9e9ba8ff1fe90f9fb5da1d5dbe'
+  /lib:
+    newFile: !uuid '27a92348d076362e0b6d3fc989a134d786a0336f'
+    oldFile: !uuid '6340812c7d8403ebae4a5baf251af917c6671b26'
+  /lib/swiper@8.min.js:
+    newFile: !uuid '78c3b1607f1638ea9d9a713f0213fd563bba2701'
+    oldFile: null
+gitCommitId: !uuid 'ba75b7818d5e2e2e7def21458fb34a8f9ae316e7'
 renames: {
   }
-revisionId: 11
+revisionId: 12
