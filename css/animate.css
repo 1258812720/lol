@@ -5,9 +5,21 @@
         transform: translateY(0);
     }
 }
+
 @keyframes body-fade-in {
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+/* play */
+@keyframes play-delay {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(100%);
     }
 }

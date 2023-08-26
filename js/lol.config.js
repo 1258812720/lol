@@ -15,10 +15,15 @@ const new_uri =
         "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=24&source=web_pc&r1=_jsonp",
         "https://apps.game.qq.com/cmc/zmMcnTargetContentList?r0=jsonp&page=1&num=7&target=23&source=web_pc&r1=_jsonp"];
 const url_hero_list = "https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js?v=30";
-const hero_type = [{
-    txt: "所有英雄",
-    value: 0,
-}, { txt: "战士", value: 1 }, { txt: "法师", value: 2 }, { txt: "刺客", value: 3 }, { txt: "坦克", value: 4 }, { txt: "射手", value: 5 }, { txt: "辅助", value: 6 }];
+const hero_type = [
+    { txt: "所有英雄", value: 'all' },
+    { txt: "战士", value: 'tank' },
+    { txt: "法师", value: 'mage' },
+    { txt: "刺客", value: 'assassin' },
+    { txt: "坦克", value: 'tank' },
+    { txt: "射手", value: 'marksman' },
+    { txt: "辅助", value: 'support' }
+];
 const list = {
     menu: [
         {

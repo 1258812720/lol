@@ -5,13 +5,16 @@
     --leader-img: url("https://game.gtimg.cn/images/lol/v3/comm-spr.png");
     --icon-spr: url("https://game.gtimg.cn/images/lol/v3/index-spr.png")
 }
-div[type='button']{
+
+.tab-button,
+div[type='button'] {
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
 a[type='fill'] {
     display: block;
     width: 100%;
@@ -421,7 +424,7 @@ li {
 }
 
 .el-body[type="test"] {
-    height: 800px;
+    min-height: 800px;
     margin-bottom: 0;
     transform: translateY(50px) scale(.5);
     opacity: 0;
@@ -445,6 +448,7 @@ li {
     height: 304px;
     background-color: white;
     right: 0;
+    z-index: 999;
     bottom: 140px;
 }
 
@@ -489,7 +493,7 @@ li {
     background-repeat: no-repeat;
 }
 
-.to-top{
+.to-top {
     display: block;
     width: 22px;
     height: 22px;
@@ -741,12 +745,106 @@ a[type='theme'] {
 
 .game-download {
     width: calc(1358px - 840px);
-    height:366px;
+    height: 366px;
     float: right;
 }
-.game-download>.btn-down{
+
+.game-download>.btn-down {
     background-image: url('../img/btn-download.gif');
     background-repeat: no-repeat;
     width: 366px;
     height: 168px;
+}
+
+.hero-inner-list {
+    clear: both;
+    width: 100%;
+    margin: 8px 0 0 0;
+}
+
+.hero-inner-list>.hero-inner-list-item {
+    width: 90px;
+    height: 100px !important;
+    /* !important */
+    margin: 0 7px 10px 6px !important;
+    /* !important */
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    color: #000;
+    font-size: 12px;
+    display: inline-block;
+    cursor: pointer;
+}
+.hero-inner-list>.hero-inner-list-item span {
+    display: inline-block;
+    width: 100%;
+}
+
+.hero-inner-list>.hero-inner-list-item:hover {
+    color: #1da6ba;
+}
+
+.hero-inner-list>.hero-inner-list-item img {
+    width: 66px;
+    height: 66px;
+    margin: 2px auto;
+}
+
+#hero-list {
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 438px;
+}
+
+.swiper-wrapper {
+    display: block !important;
+}
+
+.play-style {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 2px;
+    justify-content: center;
+    left: 12px;
+    width: 66px;
+    height: 66px;
+}
+
+.play-performance {
+    position: relative;
+    width: 40px;
+    display: flex;
+    height: 36px;
+    justify-content: space-around;
+    align-items: end;
+
+}
+
+.play-style>.played>div,
+.play-style>.played::before,
+.play-style>.played::after {
+    transform-origin: 100% 100%;
+    background-color: rgb(255, 255, 255);
+    animation-name: play-delay;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: .36s;
+    animation-timing-function: linear;
+    height: 80%;
+    width: 6px;
+    transform: scaleY(0);
+}
+
+.play-style>.played::before,
+.play-style>.played::after {
+    content: '';
+    display: block;
+    animation-delay: .16s;
+}
+
+.play-style>.played>div {
+    animation-delay: 0s;
 }

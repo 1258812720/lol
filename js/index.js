@@ -29,6 +29,7 @@ $.fn.extend({
      */
     createTabBtn: function (config) {
         let _t = $(this);
+        let path_index = 0;
         if (config.init && typeof config.init === 'function') {
             config.init(_t);
         }
@@ -39,14 +40,21 @@ $.fn.extend({
                  </div>`);
                 if (config.select && typeof config.select === 'function') {
                     btn.on("click", function () {
-                        config.select(val.value);
-                        btn.addClass("selected")
-                            .siblings().removeClass("selected");
+                        if ($(this).index() === path_index) {
+                            return;
+                        } else {
+                            config.select(val.value, _t);
+                            btn.addClass("selected")
+                                .siblings().removeClass("selected");
+                            path_index = $(this).index()
+                        }
+
                     })
                 }
                 _t.append(btn);
             });
         }
+        return _t;
     }
 });
 const news_data = ref([], (data, idx) => {
@@ -233,21 +241,72 @@ $(document).ready(function () {
         },
         select_hero: undefined,
         heros() {
-            var _t = this;
-            function render_list(data) {
+            const hero_config = {
+                all: [],
+                support: [],
+                mage: [],
+                fighter: [],
+                tank: [],
+                assassin: [],
+                marksman: []
+            }
+            function render_list() {
                 // 渲染tabs
                 $(".tab-list-hero").createTabBtn({
                     col: hero_type,
                     slide: undefined,
-                    init(el) {
-
+                    inner: null,
+                    init() {
+                        this.inner = $('.hero-inner-list');
+                        this.h('all');
+                        new Swiper("#hero-list", {
+                            direction: 'vertical',
+                            freeMode: true, slidesPerView: 4,
+                            observer: true,
+                            observeSlideChildren: true,
+                            grid: {
+                                fill: 'row',
+                                rows: 13,
+                            },
+                        });
+                    },
+                    h(name) {
+                        this.inner.empty();
+                        if (name) {
+                            let show_data = hero_config[name];
+                            if (show_data && show_data.length > 0) {
+                                let vm = $(document.createDocumentFragment());
+                                show_data.forEach(d => {
+                                    let node = $(`<li class="hero-inner-list-item swiper-slide">
+                                        <img src='https://game.gtimg.cn/images/lol/act/img/champion/${d.alias}.png'/>
+                                        <span>${d.name}</span>
+                                        <div class="play-style">
+                                            <div class="play-performance"><div></div></div>
+                                        </div>
+                                        </li>`);
+                                    node.on("click", function () {
+                                        let auo = $("<audio autoplay type='audio/ogg' src='" + d.selectAudio + "'></audio>");
+                                        let child = node.children('.play-style').children('.play-performance');
+                                        auo.on("ended", function () {
+                                            $(this).remove();
+                                            child.removeClass('played')
+                                        });
+                                        auo.on('error', function () {
+                                            $(this).remove();
+                                        });
+                                        auo.on('playing', function () {
+                                            child.addClass('played')
+                                        })
+                                        $(this).append(auo);
+                                    });
+                                    vm.append(node);
+                                });
+                                this.inner.append(vm);
+                            }
+                        }
                     },
                     select(e) {
-                        let index = e;
-                        if (index < data.length) {
-                            let sel_data = data[index];
-                            console.log(sel_data)
-                        }
+                        this.h(e);
                     }
                 });
             }
@@ -256,8 +315,17 @@ $(document).ready(function () {
                 url: url_hero_list,
                 success(res) {
                     let toJson = JSON.parse(res);
+                    hero_config.all = toJson.hero;
+                    toJson.hero.forEach((a) => {
+                        let types = a.roles.join(',');
+                        for (const c in hero_config) {
+                            if (types.includes(c)) {
+                                hero_config[c].push(a);
+                            }
+                        }
+                    });
                     if (Object.keys(toJson) !== 0) {
-                        render_list(toJson.hero);
+                        render_list();
                     }
                 },
                 error(err) {
