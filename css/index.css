@@ -31,7 +31,11 @@ body {
 li {
     list-style: none;
 }
-
+.top-bg-wrapper{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
 .el_toubu {
     position: relative;
     top: 0;
@@ -43,6 +47,7 @@ li {
 
 .el_toubu>.top_bg1 {
     position: relative;
+    margin: 0 auto;
 }
 
 .lol_menu {
@@ -78,6 +83,7 @@ li {
     position: relative;
     z-index: 8;
     align-items: center;
+    /* margin: 0 auto; */
 }
 
 .menu_list {
@@ -198,6 +204,7 @@ li {
     width: 1358px;
     margin: 45px auto;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .tab-btn {
@@ -214,19 +221,20 @@ li {
     height: 40px;
     flex-direction: row;
     text-align: center;
-    border-bottom: 2px solid;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    border-bottom-width: medium;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: rgba(0, 0, 0, 0);
     font-size: 14px;
 }
 
 .btn-select {
     color: #ab8e66;
     background-color: white;
-    border-color: #cea861;
+    border-bottom-color: #cea861;
 }
 
 .swiper {
@@ -421,12 +429,15 @@ li {
     white-space: nowrap;
     color: #0da0b4;
     text-align: center;
+    background-image: var(--icon-spr);
+    background-repeat: no-repeat;
+    background-position: 0px -458px;
 }
 
 .el-body[type="test"] {
-    min-height: 800px;
+    /* min-height: 800px; */
     margin-bottom: 0;
-    transform: translateY(50px) scale(.5);
+    /* transform: translateY(50px) scale(.5); */
     opacity: 0;
 }
 
@@ -449,6 +460,7 @@ li {
     background-color: white;
     right: 0;
     z-index: 999;
+    border-radius: 9px 0 0 9px;
     bottom: 140px;
 }
 
@@ -490,17 +502,18 @@ li {
 
 .header-icon {
     background-image: var(--leader-img);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
-.to-top {
+.el-button>.header-icon {
     display: block;
     width: 22px;
     height: 22px;
-    background-position: -214px -99px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-image: var(--leader-img);
-    margin-bottom: 8px;
 }
+
 
 .el-button {
     color: #92a8ab;
@@ -512,6 +525,7 @@ li {
     justify-content: center;
     flex-direction: column;
     font-size: 12px;
+    margin-bottom: 10px;
 }
 
 
@@ -541,7 +555,7 @@ li {
 .tab-list-activity {
     margin-left: 20px;
     display: inline-flex;
-    width: 648px;
+    width: 672px;
 }
 
 .inline-layout {
@@ -599,7 +613,7 @@ li {
 
 .left-huodong {
     min-height: 325px;
-    width: 840px;
+    width: 820px;
     overflow: hidden;
     float: left;
     position: relative;
@@ -647,7 +661,8 @@ a[type='theme'] {
 }
 
 .card-title-more {
-    color: red;
+    position: absolute;
+    right: 0;
 }
 
 .tab-list-card {
@@ -706,7 +721,6 @@ a[type='theme'] {
 .tab-list-card-text>.title {
     color: #cdbe91;
     line-height: 26px;
-
 }
 
 .tab-list-card-text>.desc {
@@ -721,7 +735,11 @@ a[type='theme'] {
     display: block;
     font-size: 13.8px;
     display: inline-block;
-    min-height: 38px;
+    height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tab-list-card>.duration {
@@ -743,18 +761,6 @@ a[type='theme'] {
     margin-top: 4px;
 }
 
-.game-download {
-    width: calc(1358px - 840px);
-    height: 366px;
-    float: right;
-}
-
-.game-download>.btn-down {
-    background-image: url('../img/btn-download.gif');
-    background-repeat: no-repeat;
-    width: 366px;
-    height: 168px;
-}
 
 .hero-inner-list {
     clear: both;
@@ -776,6 +782,7 @@ a[type='theme'] {
     display: inline-block;
     cursor: pointer;
 }
+
 .hero-inner-list>.hero-inner-list-item span {
     display: inline-block;
     width: 100%;
@@ -847,4 +854,95 @@ a[type='theme'] {
 
 .play-style>.played>div {
     animation-delay: 0s;
+}
+
+.ziliao {
+    background-position: 518px 129px;
+}
+
+.huodong {
+    background-position: -238px -99px;
+}
+
+.to-top {
+    width: 36px !important;
+    height: 28px !important;
+    background-position: -192px -12px;
+}
+
+.shipin {
+    background-position: -258px -99px;
+}
+
+.saishi {
+    background-position: -220px -45px
+}
+.btn-new-player{
+    background-image: var(--icon-spr);
+    background-position:-192px -316px;
+    width: 118px;
+    height: 76px;
+    background-repeat: no-repeat;
+}
+
+.game-download div[type='button']{
+    text-align: center;
+    color: white;
+    font-size: 15.2px;
+    line-height:74px;
+}
+.v-button{
+    height: 168px;
+}
+.v-button>div:last-child{
+    margin-top: 16px;
+}
+.game-download {
+    width: calc(1358px - 862px);
+    height: 366px;
+    display: inline-flex;
+    margin-left: 42px;
+    flex-wrap:wrap;
+    box-sizing: border-box;
+    padding-top: 16px;
+}
+
+.game-download>.btn-down {
+    width: 366px;
+    height: 168px;
+    clear: right;
+    margin-right: 12px;
+}
+.service-list{
+    width: 100%;
+    height: calc(366px - 198px);
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+.service-item{
+    width: 112px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 16px 0 0;
+    background-color: white;
+    color: #424242;
+    font-size: 12px;
+}
+.service-item:nth-child(4n){
+    margin-right: 0;
+}
+.service-item>.service-icon{
+    display: block;
+    margin-right: 4px;
+    width: 22px;
+    height:20px;
+    background-color: #ffffff;
+    background-position: var(--x) var(--y);
+}
+.service-item:hover{
+    color: #0da0b4;
 }

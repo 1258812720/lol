@@ -2,8 +2,8 @@
  * 数据配置脚本
  */
 const page = {
-    "top_bg": "https://img.crawler.qq.com/lolwebschool/0/JAutoCMS_LOLWeb_fc06683d2f6ff1b5535fdbbd533ef1ba/0",
-    "top_bg1": "https://img.crawler.qq.com/lolwebschool/0/JAutoCMS_LOLWeb_dd8dbf05bf73072a5fba4120bda9c192/0",
+    "top_bg": "https://img.crawler.qq.com/lolwebschool/0/JAutoCMS_LOLWeb_e161f7f41c846d50de49af31fdfc0827/0",
+    "top_bg1": "https://img.crawler.qq.com/lolwebschool/0/JAutoCMS_LOLWeb_9b9d40d9b483e5546e42d2d6b8605c28/0",
     "txt_logo": "https://game.gtimg.cn/images/lol/v3/logo-public.png"
 }
 const sprite = "https://game.gtimg.cn/images/lol/v3/topfoot-spr.png";// 精灵图
@@ -127,5 +127,34 @@ const tab_config = {
                 desc: '因为能跟PD合作\r2023-08-03 - 2023-08-31'
             }
         ]
+    ]
+}
+const download_config = {
+    list: [
+        {
+            txt: '在线客服',
+            postion: [-316, -12]
+        }, {
+            txt: '秩序殿堂',
+            postion: [-219, -72]
+        }, {
+            txt: '游戏资料',
+            postion: [-343, -12]
+        }, {
+            txt: '峡谷之巅',
+            postion: [-193, -72]
+        }, {
+            txt: '云顶之弈',
+            postion: [-280, -125]
+        }, {
+            txt: '攻略中心',
+            postion: [-371, -12]
+        }, {
+            txt: 'LOL宇宙',
+            postion: [-274, -46]
+        }, {
+            txt: '微信绑定',
+            postion: [-193, -46]
+        }
     ]
 }

@@ -76,6 +76,15 @@ function _jsonp(data) {
     } catch (err) { }
 }
 $(document).ready(function () {
+    // 初始化窗口尺寸
+    function setscreen() {
+        $("html").css({
+            width: window.innerWidth + 'px'
+        });
+    }
+    setscreen();
+    $(window).on("resize", setscreen)
+
     window.__proto__.message = function (msg) {
         let div = $(`
         <div class="el-message"></div>
@@ -105,7 +114,6 @@ $(document).ready(function () {
             inner_div.addClass("show");
         }
     }
-
     /**
      * 
      * @param {测试} data 
@@ -183,7 +191,19 @@ $(document).ready(function () {
                 .tab()
                 .scroll((data) => {
                     // console.log(data);
-                }).tool();
+                }).tool().down();
+        },
+        down() {
+            const list = $(".service-list").eq(0);
+            const vm = document.createDocumentFragment();
+            download_config.list.forEach(a => {
+                let c = $(`<div class="service-item">
+                    <i style='--x:${a.postion[0]}px;--y:${a.postion[1]}px' class='header-icon service-icon'></i>
+                        ${a.txt}
+                </div>`)[0];
+                vm.appendChild(c);
+            });
+            list.append(vm)
         },
         his_index: 0,
         tool() {
@@ -336,7 +356,7 @@ $(document).ready(function () {
         scroll(f) {
             // 判断页面的高度是否溢出
             let doc_height = document.body.offsetHeight;
-            let win_height = window.innerHeight;
+            let win_height = window.innerHeight / window.devicePixelRatio;
             if (doc_height > win_height) {
                 let NodeList = $(".animate-fade");
                 let max = NodeList.length;
@@ -349,7 +369,8 @@ $(document).ready(function () {
                     }
                     if ($(".fade-in").length < max) {
                         NodeList.each((d, el) => {
-                            let offsetTop = $(el).offset().top;
+                            let offsetTop = $(el).position().top;
+                            console.log(offsetTop, win_height, h)
                             if (offsetTop < win_height + h) {
                                 $(el).addClass("b-fade-in");
                             }
