@@ -11,7 +11,7 @@ function ref(obj, c) {
             set(tar, key, val) {
                 tar[Number(key)] = val;
                 if (c && typeof c === 'function') {
-                    c(tar, Number(key));
+                    c(tar, (key));
                 }
             },
             get(t, k) {
@@ -57,6 +57,9 @@ $.fn.extend({
         return _t;
     }
 });
+$.fn.$vm = function () {
+    return document.createDocumentFragment();
+}
 const news_data = ref([], (data, idx) => {
     let p = main.eq(idx);
     let lists = data[idx].data.result;
@@ -75,6 +78,10 @@ function _jsonp(data) {
         news_data.push(data);
     } catch (err) { }
 }
+let g_data = null
+function query(data) {
+    g_data = data.msg
+}
 $(document).ready(function () {
     // 初始化窗口尺寸
     function setscreen() {
@@ -84,7 +91,6 @@ $(document).ready(function () {
     }
     setscreen();
     $(window).on("resize", setscreen)
-
     window.__proto__.message = function (msg) {
         let div = $(`
         <div class="el-message"></div>
@@ -191,11 +197,11 @@ $(document).ready(function () {
                 .tab()
                 .scroll((data) => {
                     // console.log(data);
-                }).tool().down();
+                }).tool().down().video();
         },
         down() {
             const list = $(".service-list").eq(0);
-            const vm = document.createDocumentFragment();
+            const vm = $().$vm();
             download_config.list.forEach(a => {
                 let c = $(`<div class="service-item">
                     <i style='--x:${a.postion[0]}px;--y:${a.postion[1]}px' class='header-icon service-icon'></i>
@@ -203,14 +209,62 @@ $(document).ready(function () {
                 </div>`)[0];
                 vm.appendChild(c);
             });
-            list.append(vm)
+            list.append(vm);
+            return this;
         },
-        his_index: 0,
+        video() {
+            // 视频卡片
+            let lay = $("#video-card");
+            let sub = lay.siblings(".inline-layout");
+            function fetch_data(param) {
+                return new Promise((r, j) => {
+                    let script = $(`<script src="${video_url[param > 0 ? param : 0]}query"></script>`);
+                    sub.append(script);
+                    r(g_data,script);
+                    j('错误')
+                });
+            }
+            function h(list) {
+                if (list) {
+                    lay.empty();
+                    let vm = $().$vm();
+                    list.forEach(a => {
+                        let el = $(`<div class="video-card"> 
+                        <img class="cover-image" src="${a.sCoverList ? a.sCoverList[0].url : ''}"/>
+                        <span>${a.sTitle}</span>
+                        <div class="bottom-info"> 
+                        <span>${a.iTotalPlay}</span>
+                        ${a.sIdxTime} </div>
+                        </div>`)[0];
+                        vm.appendChild(el)
+                    })
+                    lay.append(vm)
+                }
+            }
+            sub.children('.tab-list-video').createTabBtn({
+                col: video_menu,
+                init() {
+                    fetch_data(0).then(((ev,s) => {
+                        setTimeout(() => {
+                            console.log(g_data)
+                            h(g_data?g_data.results:null);
+                        }, 1050);
+                        console.log(s)
+                        s.remove();
+                    })).catch(err=>{
+                        console.error(err)
+                    });
+                },
+                select(ev) {
+                    console.log(ev);
+                }
+            });
+        },
         tool() {
             $("#back-top").click(() => {
                 $("html,body").animate({
                     scrollTop: 0
-                }, 430)
+                }, 430);
             });
             // 热门活动
             let contents = $(".tab-list-activity-wrapper");
@@ -370,7 +424,6 @@ $(document).ready(function () {
                     if ($(".fade-in").length < max) {
                         NodeList.each((d, el) => {
                             let offsetTop = $(el).position().top;
-                            console.log(offsetTop, win_height, h)
                             if (offsetTop < win_height + h) {
                                 $(el).addClass("b-fade-in");
                             }

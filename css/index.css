@@ -31,11 +31,13 @@ body {
 li {
     list-style: none;
 }
-.top-bg-wrapper{
+
+.top-bg-wrapper {
     width: 100%;
     height: auto;
     text-align: center;
 }
+
 .el_toubu {
     position: relative;
     top: 0;
@@ -552,7 +554,8 @@ li {
     background-color: #1da6ba;
 }
 
-.tab-list-activity {
+.tab-list-activity,
+.tab-list-video {
     margin-left: 20px;
     display: inline-flex;
     width: 672px;
@@ -564,7 +567,8 @@ li {
     height: 48px;
 }
 
-.tab-list-activity>.tab-button {
+.tab-list-activity>.tab-button,
+.tab-list-video>.tab-button {
     margin-right: 27px;
     text-align: center;
     font-size: 16px;
@@ -574,12 +578,18 @@ li {
     position: relative;
 }
 
-.tab-list-activity>.selected {
+.tab-list-video>.tab-button {
+    width: auto;
+}
+
+.tab-list-activity>.selected,
+.tab-list-video>.selected {
     font-weight: 700;
     color: #1da6ba;
 }
 
-.tab-list-activity>.tab-button::after {
+.tab-list-activity>.tab-button::after,
+.tab-list-video>.tab-button::after {
     content: '';
     display: block;
     width: 100%;
@@ -592,7 +602,8 @@ li {
     transition: transform .25s;
 }
 
-.tab-list-activity>.selected::after {
+.tab-list-activity>.selected::after,
+.tab-list-video>.selected::after {
     transform: scaleX(1);
 }
 
@@ -877,32 +888,36 @@ a[type='theme'] {
 .saishi {
     background-position: -220px -45px
 }
-.btn-new-player{
+
+.btn-new-player {
     background-image: var(--icon-spr);
-    background-position:-192px -316px;
+    background-position: -192px -316px;
     width: 118px;
     height: 76px;
     background-repeat: no-repeat;
 }
 
-.game-download div[type='button']{
+.game-download div[type='button'] {
     text-align: center;
     color: white;
     font-size: 15.2px;
-    line-height:74px;
+    line-height: 74px;
 }
-.v-button{
+
+.v-button {
     height: 168px;
 }
-.v-button>div:last-child{
+
+.v-button>div:last-child {
     margin-top: 16px;
 }
+
 .game-download {
     width: calc(1358px - 862px);
     height: 366px;
     display: inline-flex;
     margin-left: 42px;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     box-sizing: border-box;
     padding-top: 16px;
 }
@@ -913,7 +928,8 @@ a[type='theme'] {
     clear: right;
     margin-right: 12px;
 }
-.service-list{
+
+.service-list {
     width: 100%;
     height: calc(366px - 198px);
     display: inline-flex;
@@ -921,7 +937,8 @@ a[type='theme'] {
     flex-wrap: wrap;
     margin-top: 0px;
 }
-.service-item{
+
+.service-item {
     width: 112px;
     height: 68px;
     display: flex;
@@ -932,17 +949,42 @@ a[type='theme'] {
     color: #424242;
     font-size: 12px;
 }
-.service-item:nth-child(4n){
+
+.service-item:nth-child(4n) {
     margin-right: 0;
 }
-.service-item>.service-icon{
+
+.service-item>.service-icon {
     display: block;
     margin-right: 4px;
     width: 22px;
-    height:20px;
+    height: 20px;
     background-color: #ffffff;
     background-position: var(--x) var(--y);
 }
-.service-item:hover{
+
+.service-item:hover {
     color: #0da0b4;
+}
+
+#video-card {
+    position: relative;
+    width: 101%;
+    min-height: 42px;
+    box-sizing: border-box;
+    margin-left: 1%;
+    margin-top: 10px;
+}
+
+.video-card {
+    width: 214px;
+    height: 195px;
+    position: relative;
+    display: inline-block;
+    margin: 0 14px 16px 0;
+}
+
+#video-card>.video-card>.cover-image {
+    width: 216px;
+    height: 120px;
 }
