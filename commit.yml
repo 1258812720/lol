@@ -3,30 +3,24 @@ branches: {
   }
 fileChange:
   /css:
-    newFile: !uuid '47df07c4e0c372ac799fb13be2f0f33030353a77'
-    oldFile: !uuid 'b935390b5fc6db678725f203a59965e432985def'
+    newFile: !uuid '841b57c985f9fa9dc176cba3746fd2dac0ce84b2'
+    oldFile: !uuid '47df07c4e0c372ac799fb13be2f0f33030353a77'
   /css/index.css:
-    newFile: !uuid 'da1230bde473718266c74419fa97908a572152dc'
-    oldFile: !uuid '4925cf69daeb0f22f1917ea9578d9ea7c8083893'
-  /img:
-    newFile: !uuid '76e29a3a18ea92994fc570b9a0a28a8ca2faa61a'
-    oldFile: !uuid '0a9b7b341992fc0dbd263754f41a1cffc66667af'
-  /img/btn-download.mpeg:
-    newFile: !uuid '4b68d18afc83c8ab999c1f60e499e91ef7de4c55'
-    oldFile: null
+    newFile: !uuid '28e3464377c9ac47bf29a0f2d551b3eb0e1fb273'
+    oldFile: !uuid 'da1230bde473718266c74419fa97908a572152dc'
   /index.html:
-    newFile: !uuid 'f544120f7ca055bd213cac67df47748f691d910d'
-    oldFile: !uuid '8863041d69917a910a4d99429da65ef32fca85bd'
+    newFile: !uuid '3da42c8b26f29ca589ca9c7caeb82c7f1d3b2f55'
+    oldFile: !uuid 'f544120f7ca055bd213cac67df47748f691d910d'
   /js:
-    newFile: !uuid '92965e9882a3150a8d3d380b7ad26a3bfdd2cce6'
-    oldFile: !uuid '1ceec33b37ecd147bb37e491dc9513d98f074b9d'
+    newFile: !uuid 'd51f214dcd8e078ade3292612f64c0613c6c294e'
+    oldFile: !uuid '92965e9882a3150a8d3d380b7ad26a3bfdd2cce6'
   /js/index.js:
-    newFile: !uuid 'dfcd418e783cc7d2ac36bd54f2dd33be42436fa0'
-    oldFile: !uuid '923ee24aa4835df399a1a733d8a39347b81455ae'
+    newFile: !uuid '634f176833ae5dc67f007275b48c7af2fa086460'
+    oldFile: !uuid 'dfcd418e783cc7d2ac36bd54f2dd33be42436fa0'
   /js/lol.config.js:
-    newFile: !uuid 'c901dd78400678499a87af549d05f4e785cd5726'
-    oldFile: !uuid '82d7756f0319c4d2ec07843045871ac4d230ec5b'
-gitCommitId: !uuid '674283dcc54c90a15e70fbb85aa0622e268ea234'
+    newFile: !uuid '3520a7e3a37b38cae92ea63ba71c5ccd05c177ba'
+    oldFile: !uuid 'c901dd78400678499a87af549d05f4e785cd5726'
+gitCommitId: !uuid '3b9f4afc66ba5bf2ec2c2ad01e7d870c8a817a57'
 renames: {
   }
-revisionId: 13
+revisionId: 14
