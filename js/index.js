@@ -9,7 +9,7 @@ function ref(obj, c) {
     if (obj) {
         return new Proxy(obj, {
             set(tar, key, val) {
-                tar[Number(key)] = val;
+                tar[key] = val;
                 if (c && typeof c === 'function') {
                     c(tar, (key));
                 }
@@ -19,6 +19,24 @@ function ref(obj, c) {
             }
         });
     }
+}
+// 对象监听器
+const watchEffect = function (d, c) {
+    if (!this || !c) {
+        return;
+    }
+    return new Proxy(this, {
+        set(tar, key, val) {
+            let k = Number(key) ? Number(key) : key;
+            tar[k] = val;
+            if (c && typeof c === 'function') {
+                c(tar, (key));
+            }
+        },
+        get(t, k) {
+            return t[k];
+        }
+    });
 }
 
 // 封装的tab组件库
@@ -78,9 +96,9 @@ function _jsonp(data) {
         news_data.push(data);
     } catch (err) { }
 }
-let g_data = null
+let g_data = null;
 function query(data) {
-    g_data = data.msg
+    g_data.value = data.msg.result;
 }
 $(document).ready(function () {
     // 初始化窗口尺寸
@@ -216,25 +234,31 @@ $(document).ready(function () {
             // 视频卡片
             let lay = $("#video-card");
             let sub = lay.siblings(".inline-layout");
+            g_data = ref({ value: null }, (a) => {
+                h(a);
+            })
             function fetch_data(param) {
                 return new Promise((r, j) => {
                     let script = $(`<script src="${video_url[param > 0 ? param : 0]}query"></script>`);
                     sub.append(script);
-                    r(g_data,script);
+                    r(g_data, script);
                     j('错误')
+                    script.remove();
                 });
             }
             function h(list) {
                 if (list) {
                     lay.empty();
                     let vm = $().$vm();
-                    list.forEach(a => {
-                        let el = $(`<div class="video-card"> 
-                        <img class="cover-image" src="${a.sCoverList ? a.sCoverList[0].url : ''}"/>
-                        <span>${a.sTitle}</span>
-                        <div class="bottom-info"> 
+                    list.value.forEach(a => {
+                        let el = $(`<div class="video-card">
+                        <a target="_blank" href="${video_play_host + a.iDocID}">
+                            <img class="cover-image" src="${a.sCoverList ? a.sCoverList[0].url : ''}"/>
+                            <span class="video-s-title">${a.sTitle}</span>
+                            <div class="bottom-info">
                         <span>${a.iTotalPlay}</span>
-                        ${a.sIdxTime} </div>
+                        
+                        ${a.sIdxTime} </div></a>
                         </div>`)[0];
                         vm.appendChild(el)
                     })
@@ -244,19 +268,10 @@ $(document).ready(function () {
             sub.children('.tab-list-video').createTabBtn({
                 col: video_menu,
                 init() {
-                    fetch_data(0).then(((ev,s) => {
-                        setTimeout(() => {
-                            console.log(g_data)
-                            h(g_data?g_data.results:null);
-                        }, 1050);
-                        console.log(s)
-                        s.remove();
-                    })).catch(err=>{
-                        console.error(err)
-                    });
+                    fetch_data(0)
                 },
                 select(ev) {
-                    console.log(ev);
+                    fetch_data(ev);
                 }
             });
         },
@@ -359,6 +374,7 @@ $(document).ready(function () {
                                         </div>
                                         </li>`);
                                     node.on("click", function () {
+                                        if($(this).children("audio").length>0){return}
                                         let auo = $("<audio autoplay type='audio/ogg' src='" + d.selectAudio + "'></audio>");
                                         let child = node.children('.play-style').children('.play-performance');
                                         auo.on("ended", function () {
