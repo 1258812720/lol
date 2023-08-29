@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /css:
-    newFile: !uuid '841b57c985f9fa9dc176cba3746fd2dac0ce84b2'
-    oldFile: !uuid '47df07c4e0c372ac799fb13be2f0f33030353a77'
+    newFile: !uuid 'f90b17cfee6d43003b9b080acbf1367e53409d21'
+    oldFile: !uuid '841b57c985f9fa9dc176cba3746fd2dac0ce84b2'
   /css/index.css:
-    newFile: !uuid '28e3464377c9ac47bf29a0f2d551b3eb0e1fb273'
-    oldFile: !uuid 'da1230bde473718266c74419fa97908a572152dc'
+    newFile: !uuid 'f45cbeb788833ed14d455cc31ab4e229db3bb1fd'
+    oldFile: !uuid '28e3464377c9ac47bf29a0f2d551b3eb0e1fb273'
   /index.html:
-    newFile: !uuid '3da42c8b26f29ca589ca9c7caeb82c7f1d3b2f55'
-    oldFile: !uuid 'f544120f7ca055bd213cac67df47748f691d910d'
+    newFile: !uuid '460c9e00719a576406f5b92776542b28cb090596'
+    oldFile: !uuid '3da42c8b26f29ca589ca9c7caeb82c7f1d3b2f55'
   /js:
-    newFile: !uuid 'd51f214dcd8e078ade3292612f64c0613c6c294e'
-    oldFile: !uuid '92965e9882a3150a8d3d380b7ad26a3bfdd2cce6'
+    newFile: !uuid 'f68169ba5b2af18510b4fdd84b1d8e41115e13ac'
+    oldFile: !uuid 'd51f214dcd8e078ade3292612f64c0613c6c294e'
   /js/index.js:
-    newFile: !uuid '634f176833ae5dc67f007275b48c7af2fa086460'
-    oldFile: !uuid 'dfcd418e783cc7d2ac36bd54f2dd33be42436fa0'
+    newFile: !uuid 'b79817d5e2df22a1de5975599e5b44f54e33780b'
+    oldFile: !uuid '634f176833ae5dc67f007275b48c7af2fa086460'
   /js/lol.config.js:
-    newFile: !uuid '3520a7e3a37b38cae92ea63ba71c5ccd05c177ba'
-    oldFile: !uuid 'c901dd78400678499a87af549d05f4e785cd5726'
-gitCommitId: !uuid '3b9f4afc66ba5bf2ec2c2ad01e7d870c8a817a57'
+    newFile: !uuid '3a1e0c235891d37f00b03207581135d8b0465589'
+    oldFile: !uuid '3520a7e3a37b38cae92ea63ba71c5ccd05c177ba'
+gitCommitId: !uuid 'a67dbb02c2a42d021a6d9e745a44165ed1d6e580'
 renames: {
   }
-revisionId: 14
+revisionId: 15
