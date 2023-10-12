@@ -2,10 +2,13 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'e473a8530c238cd05f2b7783e571071fdbfd8bce'
-    oldFile: !uuid '3ab6be1668746ceacded6fb064fcc955b78888b3'
-gitCommitId: !uuid '538456b8eb548596610b60dd067925ee66d35e53'
+  /lib:
+    newFile: !uuid '808703bee975d797b787d4276b36a1b501c668a6'
+    oldFile: !uuid '27a92348d076362e0b6d3fc989a134d786a0336f'
+  /lib/swiper.js:
+    newFile: !uuid 'ce022571a5cfe6359768b09e28d5091170befae2'
+    oldFile: !uuid 'aa8246124625263128435477c739b628c6ac38d1'
+gitCommitId: !uuid 'cb43a53a9d0b20b53770c05e0a1308f2749a6051'
 renames: {
   }
-revisionId: 16
+revisionId: 17
