@@ -495,9 +495,11 @@ $(document).ready(function () {
                 lazy: {
                     prop: "data"
                 },
+                on:{
                 change(ev) {
                     children.eq(ev).addClass("btn-select").siblings("span")
                         .removeClass("btn-select")
+                    }
                 },
                 duration: 300,
             });
