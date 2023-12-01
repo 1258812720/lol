@@ -496,7 +496,6 @@ $(document).ready(function () {
                     prop: "data"
                 },
                 change(ev) {
-                    console.log(ev)
                     children.eq(ev).addClass("btn-select").siblings("span")
                         .removeClass("btn-select")
                 },
